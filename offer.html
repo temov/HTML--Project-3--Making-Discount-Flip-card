@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>TPA: Offers</title>
+	<script type="text/javascript" src="scripts/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="scripts/jcanvas.min.js"></script>
+	<link href="styles/main.css" rel="stylesheet" type="text/css">
+	<link href="styles/transitions.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+	$(document).ready(function () {
+		// Get items from localStorage
+		var storedPrice = localStorage.getItem('price');
+		var storedGender = localStorage.getItem('gender');
+		// If localStorage item exists, show and populate special offer div
+		if (storedPrice != null) {
+			var theAction;
+			var theImage;
+			var theDiscount = '25% Попуст! 1350 ден';
+			// Determine values based on localStorage
+			if (storedGender == 'машки' & storedPrice <= 1500) {
+				theImage = 'images/nike.jpg';
+				theImageAlt = 'Nike';
+				theAction = 'МАШКИ ПАТИКИ';
+				theDiscount = '25% Попуст! 1350 ден';
+			} else {
+				theImage = 'images/adidas.jpg';
+				theImageAlt = 'Adidas';
+				theAction = 'ЖЕНСКИ ПАТИКИ';
+				theDiscount = '20% Попуст! 1550 ден';
+			}
+			storedPrice = parseInt(storedPrice);
+			
+			// Change values
+			$('#planetImage img').attr({
+				src: theImage,
+				alt: theImageAlt
+			});
+			$('#actionText h1').text(theAction);
+			$('#discount h1').text(theDiscount);
+			$('#specialOffer').css('display','block');
+		}
+		
+	});
+	</script>
+	</head>
+
+	<body id="offerPage">
+<div id="outerWrapper">
+      <header><img src="images/sport-equipment.jpg" width="205" height="90" alt="TPA: Trans Planet Airlines" /><br>
+    <img src="images/sport banner.jpg" width="373" height="37" alt="Trans Planet Airlines">
+    <nav>
+          <ul>
+        <li><a href="index.html">Дома</a></li>
+        <li><a href="planets.html">Попусти</a></li>
+        <li><a href="flights.html">Контакт</a></li>
+        <li><a href="book.html">Регистрирај се</a></li>
+      </ul>
+        </nav>
+    <!-- End nav --> 
+  </header>
+      <!-- End header -->
+      <div id="contentWrapper">
+      <div id="specialOffer">
+      	<div class="banner"></div>
+		<div id="actionText"><h1>Попуст на </h1></div>
+        <div id="planetImage"><img src="images/sportska-torba.jpg" alt="Sport"></div>
+        <div id="discount"><h1>&nbsp;25% Попуст! - 1350 ден</h1></div>
+        <div class="clearfix"></div>
+      	<div class="banner"></div>
+      </div>
+    <section>
+          <hgroup>
+        <h1>Моментални акциски цени</h1>
+        <h2>Искористи го попустот!</h2>
+      </hgroup>
+          <p><img src="images/patiki i topka.jpg" alt="Sportska oprema!" width="200" height="109" class="imageLeft">Посети го делот за специјална понуда за да добиеш попуст на бараниот производ </p>
+          <p>&nbsp;</p>
+        </section>
+    <!-- End mainContent-->
+    <aside>
+          
+          <h2>Не доби специјална понуда?</h2>
+          <p> Кликни на <a href="index.html">Наловната страница</a> И одговори на двете поставени прашања за да добиеш специјален попуст.  </p>
+        </aside>
+    <!-- End sideContent --> 
+  </div>
+      <!-- End contentWrapper -->
+      <footer>
+    <p>Copyright &copy; TT Design. All rights reserved</p>
+  </footer>
+      <!-- End footer --> 
+    </div>
+<!-- End outerWrapper --> 
+</body>
+</html>
